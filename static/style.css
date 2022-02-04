@@ -84,7 +84,7 @@ html, body{
 }
 
 section#inicio{
-    background-image: url("../static/img/fn.jpg");
+    background-image: url("../static/img/room4.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -158,3 +158,25 @@ i.menu-mobile {
 
     }
 }
+
+*::-webkit-scrollbar {
+    width: 20px; 
+                      /* width of the entire scrollbar */
+  }
+  
+*::-webkit-scrollbar-track {
+    width: 20px;
+    height: 5px;
+    box-shadow: inset 0 0 .3rem #4b230293 ;  
+    background-color: rgb(255, 255, 255);        /* color of the tracking area */
+  }
+
+  
+ *::-webkit-scrollbar-thumb {
+    background-color: #050e41;    /* color of the scroll thumb */
+    border-radius: 5%;       /* roundness of the scroll thumb */
+ ;  /* creates padding around scroll thumb */
+  }
+  .section-bg{
+      background-color: #eff5ff
+  }

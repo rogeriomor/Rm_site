@@ -18,6 +18,7 @@ mail_settings= {
 }
 
 app.config.update(mail_settings)
+
 mail = Mail(app)
 
 class Contato:
@@ -29,6 +30,7 @@ class Contato:
 @app.route('/')
 def index():
     return render_template ('index.html')
+
 
 @app.route('/send', methods=['GET','POST'])
 def send():
@@ -52,6 +54,7 @@ def send():
         mail.send(msg)
         flash('Mensagem enviada com sucesso!')
     return redirect('/')
+
 
     
 if __name__ == '__main__':

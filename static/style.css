@@ -267,6 +267,19 @@ i.menu-mobile {
 /* esse aqui serve pra colocar os botoes pra fora do carroussel*/
 /*  .carousel-control-nextmargin-right: 0;*/
 
+
+#btn-enviar-loader{
+    display: none ;
+}
+
+#alerta {
+    position:fixed;
+    z-index:10;
+    top: 30px;
+    right: 30px;
+
+}
+
 .card img{
     /*max-inline-size:100px;*/
     max-width: 100px;

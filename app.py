@@ -1,8 +1,8 @@
-#from pickle import TRUE
-from crypt import methods
-from flask import Flask, render_template, redirect, request,
+from flask import Flask, render_template, redirect, request, flash
 from flask_mail import Mail, Message
 from config import email, senha
+
+
 
 
 app=Flask(__name__)
@@ -24,9 +24,13 @@ class Contato:
     def __init__(self, nome, email, mensagem):
         self.nome = nome
         self.email = email
-        self.mensagem=mensagem
+        self.mensagem = mensagem
+        
+@app.route('/')
+def index():
+    return render_template ('index.html')
 
-@app.route('/send', methods=['GET','POS¨T'])
+@app.route('/send', methods=['GET','POST'])
 def send():
     if request.method == 'POST':
         formContato = Contato(
@@ -34,25 +38,22 @@ def send():
             request.form["email"],
             request.form["mensagem"]
         )
-        msg =Message(
+        msg = Message(
             subject=f'{formContato.nome} te enviou uma mensagem no portfolio',
             sender= app.config.get("MAIL_USERNAME"),
             recipients=['rogeriol17q2@gmail.com',app.config.get("MAIL_USERNAME")],
             body=f'''
-            f'{formContato.nome} com o email {formContato.email}, te enviou a segunte mensagem:
+            {formContato.nome} com o email {formContato.email}, te enviou a segunte mensagem:
+            
+            
             {formContato.mensagem}
             '''
-            
         )
+        mail.send(msg)
         flash('Mensagem enviada com sucesso!')
     return redirect('/')
 
     
-
-@app.route('/')
-def index():
-    return render_template ('index.html')
-
 if __name__ == '__main__':
     app.run(debug=True)
 

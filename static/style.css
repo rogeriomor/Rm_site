@@ -279,8 +279,24 @@ i.menu-mobile {
     right: 30px;
 
 }
+#footer{
+    padding: 15px;
+    color: #fff;
+    font-size: 14px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 300px;
+    z-index: 9999;
+    background-color: #021124;
+    transition: 0.3s;
+}
 
-.card img{
-    /*max-inline-size:100px;*/
-    max-width: 100px;
-}/* essa parte foi invenção minha pra diminuir o tamanho da foto do carroussel*/
+@media (max-width: 1012px) {
+    #footer{
+        position:static;
+        width: auto;
+        padding: 10px 15px;
+
+    }
+}
